@@ -1,0 +1,59 @@
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@using Pato.Models
+@model UsuarioViewModel
+
+<!DOCTYPE html>
+
+<head>
+    <title>Login</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+</head>
+<body>
+
+<ul class="nav justify-content-center" style="margin-top: 40px;">
+@if(ViewBag.Message != null)
+        {
+            <div class="alert alert-dark">@ViewBag.Message</div>
+        }
+</ul>
+<ul class="nav justify-content-center">
+<div class="card text-white bg-secondary mb-3" style="max-width: 25rem; margin-top: 130px;">
+  <div class="card-header" align="center"><h3><b>PJL42</b></h3></div>
+  <div class="card-body">
+    <h5 class="card-title">Sign in</h5>
+    <form asp-controller="Usuario" asp-action="Login" method="POST">
+
+            <div>
+                <label>E-mail</label>
+                <input asp-for="Login" class="form-control" />
+                <span asp-validation-for="Login"></span>
+            </div>
+
+            <div>
+                <label>Senha</label>
+                <input asp-for="Senha" class="form-control" />
+                <span asp-validation-for="Senha"></span>
+            </div>
+            <ul class="nav justify-content-center">
+            <div>
+                <button class="btn btn-dark bg-dark" style="margin-top: 20px">Entrar</button>
+                <a>&nbsp;</a>
+                <a>&nbsp;</a>
+                <a>&nbsp;</a>
+                <a>&nbsp;</a>
+                <a>&nbsp;</a>
+                <a class="btn btn-dark bg-dark" style="margin-top: 20px" href="/Usuario/Create">Cadastrar</a>
+            </div>
+            </ul>
+
+        </form>
+  </div>
+</div>
+</ul>
+
+    
+
+</body>
+
+</html>

@@ -1,0 +1,45 @@
+@using Pato.Models
+@{
+    Layout = "/Views/Layout.cshtml";
+    ViewBag.Title = "Nova Pessoa";
+}
+<nav class="navbar navbar-expand-lg">
+</nav>
+<ul class="nav justify-content-center">
+<ul class="nav nav-tabs">
+        <li class="nav-item">
+            <a class="nav-link" href="/Pessoa" aria-current="page">Inicial</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link active" href="/Pessoa/Create" aria-current="page">Cadastrar</a>
+        </li>
+</ul>
+</ul>
+<nav class="navbar navbar-expand-lg">
+</nav>
+<ul class="nav justify-content-center">
+<div class="col-5">
+
+
+    <div class="card border-secondary mb-3">
+        <div class="card-body text-secondary">
+
+<form action="/Pessoa/Create" method="POST">
+    <div class="col-md-4 position-relative">
+        <label>Nome</label>
+        <input type="text" class="form-control" name="Nome"/>
+    </div>
+
+    <div class="col-md-4 position-relative">
+        <label>Cpf</label>
+        <input type="text" class="form-control" name="Cpf"/>
+    </div>
+
+
+    <button class="btn btn-dark bg-dark" style="margin-top: 20px">Salvar</button>
+</ul>
+    </div>
+    </div>
+</div>
+</ul>
+</form>

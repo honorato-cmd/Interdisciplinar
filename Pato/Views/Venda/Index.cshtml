@@ -1,0 +1,72 @@
+@using Pato.Models
+@{
+    Layout = "/Views/Layout.cshtml";
+    ViewBag.Title = "Vendas";
+}
+
+<div class="offcanvas offcanvas-start" data-bs-scroll="true" tabindex="-1" id="offcanvasWithBothOptions" aria-labelledby="offcanvasWithBothOptionsLabel">
+  <div class="offcanvas-header">
+    <h5 class="offcanvas-title" id="offcanvasWithBothOptionsLabel">Venda Filtrada</h5>
+    <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+  </div>
+  <div class="offcanvas-body">
+        @foreach(Venda pv in Model)
+        {
+           <p><a href="/Venda/Filter/@pv.IdVenda" class="link-dark">@pv.IdVenda</a></p>
+        }
+        <hr>
+        <p><a href="/Venda" class="link-dark">Todos as Vendas</a></p>
+  </div>
+</div>
+
+<nav class="navbar navbar-expand-lg">
+</nav>
+<ul class="nav justify-content-center">
+<ul class="nav nav-tabs">
+        <li class="nav-item">
+            <a class="nav-link active" href="/Venda" aria-current="page">Inicial</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="/Venda/Create">Cadastrar</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" data-bs-toggle="offcanvas" data-bs-target="#offcanvasWithBothOptions" aria-controls="offcanvasWithBothOptions">Filtrar</a>
+        </li>
+</ul>
+</ul>
+<nav class="navbar navbar-expand-lg">
+</nav>
+<ul class="nav justify-content-center">
+    <div class="card border-secondary mb-3">
+        <div class="card-body text-secondary">
+            <table class="table table-striped">
+    <tr>
+        <th>Data</th>
+        <th>Valor Líquido</th>
+        <th>Valor Bruto</th>
+        <th>Cliente</th>
+        <th>Ações</th>
+    </tr>
+    <tbody id="myTable">
+    @foreach(Venda v in Model)
+    {
+    <tr>
+        <td>@v.Data</td>
+        <td>@v.valorLiquido.ToString("c")</td>
+        <td>@v.valorBruto.ToString("c")</td>
+        <td>@v.Cliente</td>
+        <td>
+            <a href="/ProdutoVenda/Create/@v.IdVenda">Cadastrar Produto |</a>
+            <a href="/Venda/Detalhe/@v.IdVenda">Detalhes Venda |</a>
+            <a href="/Venda/Delete/@v.IdVenda">Apagar |</a>
+            <a href="/Venda/Update/@v.IdVenda">Editar</a>
+        </td>
+    </tr>
+    }
+    </tbody>
+</table>
+        </div>
+    </div>
+</ul>
+
+</div>

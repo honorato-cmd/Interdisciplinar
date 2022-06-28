@@ -1,0 +1,41 @@
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@using Pato.Models
+@model Venda
+
+@{
+    Layout = "/Views/Layout.cshtml";
+    ViewBag.Title = "Atualiza Venda";
+}
+<nav style="--bs-breadcrumb-divider: url(&#34;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8'%3E%3Cpath d='M2.5 0L1 1.5 3.5 4 1 6.5 2.5 8l4-4-4-4z' fill='currentColor'/%3E%3C/svg%3E&#34;);" aria-label="breadcrumb">
+<div>
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="/Venda/Index">Vendas</a></li>
+        <li class="breadcrumb-item active" aria-current="page">Atualiza Venda</li>
+    </ol>
+</div>
+
+<form action="/Venda/Update/@Model.IdVenda" method="POST">
+    <div class="col-md-4 position-relative">
+        <label>Data</label>
+        <input type="text" class="form-control" name="Data" value="@Model.Data"/>
+    </div>
+
+    <div class="col-md-4 position-relative">
+        <label>Valor Líquido</label>
+        <input type="text" class="form-control" name="valorLiquido" value="@Model.valorLiquido"/>
+    </div> 
+    <div class="col-md-4 position-relative">
+        <label>Valor Bruto</label>
+        <input type="text" class="form-control" name="valorBruto" value="@Model.valorBruto"/>
+    </div>
+    <div class="col-md-4 position-relative">
+        <label>Desconto</label>
+        <input type="text" class="form-control" name="Desconto" value="@Model.Desconto"/>
+    </div>
+    <div class="col-md-4 position-relative">
+        <label>Cliente</label>
+        <select asp-for="IdPessoa" asp-items="@(new SelectList(ViewBag.Clientes, nameof(Cliente.IdPessoa), nameof(Cliente.Nome)))" class="form-control"></select>
+        </div>
+
+    <button class="btn btn-dark bg-dark" style="margin-top: 20px">Salvar</button>
+</form>

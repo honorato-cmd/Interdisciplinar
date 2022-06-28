@@ -1,0 +1,55 @@
+@using Pato.Models
+@{
+    Layout = "/Views/Layout.cshtml";
+    ViewBag.Title = "Orcamentos";
+}
+<nav class="navbar navbar-expand-lg">
+</nav>
+<ul class="nav justify-content-center">
+<ul class="nav nav-tabs">
+        <li class="nav-item">
+            <a class="nav-link active" href="/ProdutoOrcamento" aria-current="page">Inicial</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" data-bs-toggle="offcanvas" data-bs-target="#offcanvasWithBothOptions" aria-controls="offcanvasWithBothOptions">Filtrar</a>
+        </li>
+</ul>
+</ul>
+<div class="offcanvas offcanvas-start" data-bs-scroll="true" tabindex="-1" id="offcanvasWithBothOptions" aria-labelledby="offcanvasWithBothOptionsLabel">
+  <div class="offcanvas-header">
+    <h5 class="offcanvas-title" id="offcanvasWithBothOptionsLabel">Todas os Orcamentos</h5>
+    <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+  </div>
+</div>
+<nav class="navbar navbar-expand-lg">
+</nav>
+<ul class="nav justify-content-center">
+    <div class="card border-secondary mb-3">
+        <div class="card-body text-secondary">
+        <table class="table table-striped">
+            <tr>
+                <th>Orçamento</th>
+                <th>Produto</th>
+                <th>Quantidade</th>
+                <th>Ações</th>
+                
+            </tr>
+            @foreach(ProdutoOrcamento po in Model)
+            {
+                <tr>
+                    <td>@po.IdOrcamento</td>
+                    <td>@po.Produto</td>
+                    <td>@po.qtd</td>
+                    <td>
+                        <a href="/ProdutoOrcamento/Delete/@po.IdPo">Apagar |</a>
+                        <a href="/ProdutoOrcamento/Update/@po.IdPo">Editar</a>  
+                     </td>
+                </tr>
+            }
+        </table>
+    </div>
+        </div>
+    </div>
+</ul>
+
+</div>

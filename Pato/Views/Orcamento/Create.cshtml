@@ -1,0 +1,62 @@
+@using Pato.Models
+@{
+    Layout = "/Views/Layout.cshtml";
+    ViewBag.Title = "Novo Orcamento";
+}
+<nav class="navbar navbar-expand-lg">
+</nav>
+<ul class="nav justify-content-center">
+<ul class="nav nav-tabs">
+        <li class="nav-item">
+            <a class="nav-link" href="/Orcamento" aria-current="page">Inicial</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link active" href="/Orcamento/Create" aria-current="page">Cadastrar</a>
+        </li>
+</ul>
+</ul>
+<nav class="navbar navbar-expand-lg">
+</nav>
+<ul class="nav justify-content-center">
+<div class="col-5">
+
+
+    <div class="card border-secondary mb-3">
+        <div class="card-body text-secondary">
+
+<form action="/Orcamento/Create" method="POST" class="row g-3">
+    <div class="col-md-4 position-relative">
+        <label>Data</label>
+        <input type="text" class="form-control" name="Data"/>
+    </div>
+
+    <div class="col-md-4 position-relative">
+        <label>Valor Líquido</label>
+        <input type="text" class="form-control" name="valorLiquido"/>
+    </div>
+
+    <div class="col-md-4 position-relative">
+        <label>Valor Bruto</label>
+        <input type="text" class="form-control" name="valorBruto"/>
+    </div>
+    <div class="col-md-4 position-relative">
+        <label>Desconto</label>
+        <input type="text" class="form-control" name="Desconto"/>
+    </div>
+    <label>Cliente</label>
+        <select name="IdPessoa" class="form-control">
+            @foreach(var cliente in ViewBag.Clientes)
+            {
+            <option value="@cliente.IdPessoa">@cliente.Nome</option>
+            }
+        </select>
+    <ul class="nav justify-content-center">
+    <div>
+    <button class="btn btn-dark bg-dark" style="margin-top: 20px" align="center">Salvar</button>
+    </div>
+    </ul>
+    </div>
+    </div>
+</div>
+</ul>
+</form>

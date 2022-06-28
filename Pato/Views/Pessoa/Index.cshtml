@@ -1,0 +1,48 @@
+@using Pato.Models
+@{
+    Layout = "/Views/Layout.cshtml";
+    ViewBag.Title = "Pessoas";
+}
+<nav class="navbar navbar-expand-lg">
+</nav>
+<ul class="nav justify-content-center">
+<ul class="nav nav-tabs">
+        <li class="nav-item">
+            <a class="nav-link active" href="/Pessoa" aria-current="page">Inicial</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="/Pessoa/Create">Cadastrar</a>
+        </li>
+</ul>
+</ul>
+<nav class="navbar navbar-expand-lg">
+</nav>
+<ul class="nav justify-content-center">
+    <div class="card border-secondary mb-3">
+        <div class="card-body text-secondary">
+            <table class="table table-striped">
+    <tr>
+        <th>Pessoa</th>
+        <th>Cpf</th>
+        <th>Ações</th>
+    </tr>
+    <tbody id="myTable">
+    @foreach(Pessoa p in Model)
+    {
+    <tr>
+        <td>@p.Nome</td>
+        <td>@p.Cpf</td>
+
+        <td>
+            <a href="/Pessoa/Delete/@p.IdPessoa">Apagar</a>
+            <a href="/Pessoa/Update/@p.IdPessoa">Editar</a>
+        </td>
+    </tr>
+    }
+    </tbody>
+</table>
+        </div>
+    </div>
+</ul>
+
+</div>

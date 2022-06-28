@@ -1,0 +1,101 @@
+@using Pato.Models
+@{
+    Layout = "/Views/Layout.cshtml";
+    ViewBag.Title = "Novo Cliente";
+}
+<nav class="navbar navbar-expand-lg">
+</nav>
+<ul class="nav justify-content-center">
+<ul class="nav nav-tabs">
+        <li class="nav-item">
+            <a class="nav-link" href="/Cliente" aria-current="page">Inicial</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link active" href="/Cliente/Create" aria-current="page">Cadastrar</a>
+        </li>
+</ul>
+</ul>
+<nav class="navbar navbar-expand-lg">
+</nav>
+<ul class="nav justify-content-center">
+<div class="col-5">
+
+
+    <div class="card border-secondary mb-3">
+        <div class="card-body text-secondary">
+
+<form action="/Cliente/Create" method="POST">
+    <div class="col-md-4 position-relative">
+        <label>Nome</label>
+        <input type="text" class="form-control" name="Nome"/>
+    </div>
+
+    <div class="col-md-4 position-relative">
+        <label>Cpf</label>
+        <input type="text" class="form-control" name="Cpf"/>
+    </div>
+    <div class="col-md-4 position-relative">
+        <label>Status</label>
+        <input type="text" class="form-control" name="Status"/>
+    </div>
+    <div class="col-md-4 position-relative">
+        <label>Rua</label>
+        <input type="text" class="form-control" name="Rua"/>
+    </div>
+    <div class="col-md-4 position-relative">
+        <label>Bairro</label>
+        <input type="text" class="form-control" name="Bairro"/>
+    </div>
+    <div class="col-md-4 position-relative">
+        <label>Cidade</label>
+        <input type="text" class="form-control" name="Cidade"/>
+    </div>
+        <div class="col-md-4 position-relative">
+        <label>UF</label>
+        <select class="form-select form-select-sm" aria-label=".form-select-sm sxample" name="Uf">
+            <option selected>Selecione a UF</option>
+            <option value="AC">AC</option>
+            <option value="AL">AL</option>
+            <option value="AM">AM</option>
+            <option value="AP">AP</option>
+            <option value="BA">BA</option>
+            <option value="CE">CE</option>
+            <option value="DF">DF</option>
+            <option value="ES">ES</option>
+            <option value="GO">GO</option>
+            <option value="MA">MA</option>
+            <option value="MT">MT</option>
+            <option value="MS">MS</option>
+            <option value="MG">MG</option>
+            <option value="PA">PA</option>
+            <option value="PB">PB</option>
+            <option value="PR">PR</option>
+            <option value="PE">PI</option>
+            <option value="RJ">RJ</option>
+            <option value="RN">RN</option>
+            <option value="RO">RO</option>
+            <option value="RR">RR</option>
+            <option value="RS">RS</option>
+            <option value="SC">SC</option>
+            <option value="SE">SE</option>
+            <option value="SP">SP</option>
+            <option value="TO">TO</option>
+        </select>
+    </div>
+    <div class="col-md-4 position-relative">
+        <label>Cep</label>
+        <input type="text" class="form-control" name="Cep"/>
+    </div>
+    <div class="col-md-4 position-relative">
+        <label>Telefone</label>
+        <input type="text" class="form-control" name="Telefone"/>
+    </div>
+
+
+    <button class="btn btn-dark bg-dark" style="margin-top: 20px">Salvar</button>
+</ul>
+    </div>
+    </div>
+</div>
+</ul>
+</form>

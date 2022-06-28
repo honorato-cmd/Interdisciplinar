@@ -1,0 +1,53 @@
+@using Pato.Models
+@{
+    Layout = "/Views/Layout.cshtml";
+    ViewBag.Title = "Novo N:N Orcamento";
+}
+<nav class="navbar navbar-expand-lg">
+</nav>
+<ul class="nav justify-content-center">
+<ul class="nav nav-tabs">
+        <li class="nav-item">
+            <a class="nav-link active" href="/ProdutoOrcamento/Create" aria-current="page">Cadastrar</a>
+        </li>
+</ul>
+</ul>
+<nav class="navbar navbar-expand-lg">
+</nav>
+<ul class="nav justify-content-center">
+<div class="col-5">
+
+
+    <div class="card border-secondary mb-3">
+        <div class="card-body text-secondary">
+
+<form action="/ProdutoOrcamento/Create" method="POST" class="row g-3">
+    <div class="col-md-4 position-relative">
+        <label>Orcamento</label>
+        <input readonly type="number" class="form-control" name="IdOrcamento" value="@ViewBag.IdOrcamento"/>
+        </select>
+    </div>
+
+    <div class="col-md-4 position-relative">
+        <label>Produto</label>
+        <select name="IdProduto" class="form-control">
+            @foreach(var produto in ViewBag.Produtos)
+            {
+            <option value="@produto.IdProduto">@produto.Nome</option>
+            }
+        </select>
+    </div>
+    <div class="col-md-4 position-relative">
+            <label>Quantidade</label>
+            <input type="number" class="form-control" name="qtd"/>
+        </div>
+    <ul class="nav justify-content-center">
+    <div>
+    <button class="btn btn-dark bg-dark" style="margin-top: 20px" align="center">Salvar</button>
+    </div>
+    </ul>
+    </div>
+    </div>
+</div>
+</ul>
+</form>

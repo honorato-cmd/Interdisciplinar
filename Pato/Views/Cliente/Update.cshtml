@@ -1,0 +1,56 @@
+@using Pato.Models
+@model Cliente
+
+@{
+    Layout = "/Views/Layout.cshtml";
+    ViewBag.Title = "Atualiza Cliente";
+}
+<nav style="--bs-breadcrumb-divider: url(&#34;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8'%3E%3Cpath d='M2.5 0L1 1.5 3.5 4 1 6.5 2.5 8l4-4-4-4z' fill='currentColor'/%3E%3C/svg%3E&#34;);" aria-label="breadcrumb">
+<div>
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="/Cliente/Index">Clientes</a></li>
+        <li class="breadcrumb-item active" aria-current="page">Atualiza Cliente</li>
+    </ol>
+</div>
+
+<form action="/Cliente/Update/@Model.IdPessoa" method="POST">
+    <div class="col-md-4 position-relative">
+        <label>Nome</label>
+        <input type="text" class="form-control" name="Nome" value="@Model.Nome"/>
+    </div>
+
+    <div class="col-md-4 position-relative">
+        <label>Cpf</label>
+        <input type="text" class="form-control" name="Cpf" value="@Model.Cpf"/>
+    </div> 
+    <div class="col-md-4 position-relative">
+        <label>Status</label>
+        <input type="text" class="form-control" name="Status" value="@Model.Status"/>
+    </div>
+    <div class="col-md-4 position-relative">
+        <label>Rua</label>
+        <input type="text" class="form-control" name="Rua" value="@Model.Rua"/>
+    </div>
+    <div class="col-md-4 position-relative">
+        <label>Bairro</label>
+        <input type="text" class="form-control" name="Bairro" value="@Model.Bairro"/>
+    </div>
+    <div class="col-md-4 position-relative">
+        <label>Cidade</label>
+        <input type="text" class="form-control" name="Cidade" value="@Model.Cidade"/>
+    </div>
+    <div class="col-md-4 position-relative">
+        <label>Uf</label>
+        <input type="text" class="form-control" name="Uf" value="@Model.Uf"/>
+    </div>
+    <div class="col-md-4 position-relative">
+        <label>Cep</label>
+        <input type="text" class="form-control" name="Cep" value="@Model.Cep"/>
+    </div>
+    <div class="col-md-4 position-relative">
+        <label>Telefone</label>
+        <input type="text" class="form-control" name="Telefone" value="@Model.Telefone"/>
+    </div>
+
+    <button class="btn btn-dark bg-dark" style="margin-top: 20px">Salvar</button>
+</form>

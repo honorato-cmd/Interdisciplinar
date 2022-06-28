@@ -1,0 +1,64 @@
+@using Pato.Models
+@{
+    Layout = "/Views/Layout.cshtml";
+    ViewBag.Title = "Clientes";
+}
+<nav class="navbar navbar-expand-lg">
+</nav>
+<ul class="nav justify-content-center">
+<ul class="nav nav-tabs">
+        <li class="nav-item">
+            <a class="nav-link active" href="/Cliente" aria-current="page">Inicial</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="/Cliente/Create">Cadastrar</a>
+        </li>
+</ul>
+</ul>
+<nav class="navbar navbar-expand-lg">
+</nav>
+<ul class="nav justify-content-center">
+    <div class="card border-secondary mb-3">
+        <div class="card-body text-secondary">
+            <table class="table table-striped">
+    
+    <tr>
+        <th>Cliente</th>
+        <th>Cpf</th>
+        <th>Status</th>
+        <th>Rua</th>
+        <th>Bairro</th>
+        <th>Cidade</th>
+        <th>UF</th>
+        <th>CEP</th>
+        <th>Telefone</th>
+        <th>Ações</th>
+    </tr>
+    <tbody id="myTable">
+    @foreach(Cliente c in Model)
+    {
+    <tr>
+        <td>@c.Nome</td>
+        <td>@c.Cpf</td>
+        <td>@c.Status</td>
+        <td>@c.Rua</td>
+        <td>@c.Bairro</td>
+        <td>@c.Cidade</td>
+        <td>@c.Uf</td>
+        <td>@c.Cep</td>
+        <td>@c.Telefone</td>
+        <td>
+            <a href="/Cliente/Delete/@c.IdPessoa">Apagar</a>
+            <a href="/Cliente/Detalhe/@c.IdPessoa">Detalhe</a>
+            <a href="/Cliente/Update/@c.IdPessoa">Editar</a>
+        </td>
+    </tr>
+    }
+</tbody>
+</table>
+        </div>
+    </div>
+</ul>
+
+</div>
+

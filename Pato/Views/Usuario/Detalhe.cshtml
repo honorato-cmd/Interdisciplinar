@@ -1,0 +1,63 @@
+@using Pato.Models
+@model Usuario
+
+@{
+    Layout = "/Views/Layout.cshtml";
+    ViewBag.Title = "Detalhes Usuário";
+}
+
+<nav style="--bs-breadcrumb-divider: url(&#34;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8'%3E%3Cpath d='M2.5 0L1 1.5 3.5 4 1 6.5 2.5 8l4-4-4-4z' fill='currentColor'/%3E%3C/svg%3E&#34;);" aria-label="breadcrumb">
+  <div>
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="/Usuario/Index">Usuarios</a></li>
+        <li class="breadcrumb-item active" aria-current="page">Detalhes do Usuário</li>
+    </ol>
+  </div>
+</nav>
+
+
+<ul class="nav justify-content-center">
+<div class="col-3">
+<div class="alert alert-dark" role="alert" action="Usuario/Detalhe/@Model.IdPessoa">
+<div align="center">
+  <h4><b>@Model.Nome</b></h4>
+</div>
+  <hr>
+  <p><h6><b>CPF:</h6></b> @Model.Cpf</p>
+  <p><h6><b>Login:</h6></b> @Model.Login</p>
+  <p><h6><b>Senha:</h6></b> @Model.Senha</p>
+  <p><h6><b>Telefone:</h6></b> @Model.Telefone</p>
+  <hr>
+  <p><h6><b>Rua:</h6></b> @Model.Rua</p>
+  <p><h6><b>Bairro:</h6></b> @Model.Bairro</p>
+  <p><h6><b>Cidade:</h6></b> @Model.Cidade</p>
+  <p><h6><b>UF:</h6></b> @Model.Uf</p>
+  <p><h6><b>CEP:</h6></b> @Model.Cep</p>
+  <hr>
+  <ul class="nav justify-content-center">
+  <button type="button" class="btn btn-block btn-dark bg-dark btn-sm" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+  Apagar Usuário
+</button>
+</ul>
+</div>
+</div>
+</ul>
+
+
+<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="staticBackdropLabel">Alerta</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <p>Você tem certeza que quer atualizar este Usuário?</p>
+      </div>
+      <div class="modal-footer">
+         <a class="btn btn-block btn-dark bg-dark btn-sm" aria-current="page" href="/Usuario/Update/@Model.IdPessoa">Atualizar</a>
+         <a class="btn btn-block btn-dark bg-dark btn-sm" aria-current="page" href="/Usuario/Delete/@Model.IdPessoa">Apagar</a>
+      </div>
+    </div>
+  </div>
+</div>

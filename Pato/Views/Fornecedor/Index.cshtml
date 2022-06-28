@@ -1,0 +1,66 @@
+@using Pato.Models
+@{
+    Layout = "/Views/Layout.cshtml";
+    ViewBag.Title = "Fornecedores";
+}
+<nav class="navbar navbar-expand-lg">
+</nav>
+<ul class="nav justify-content-center">
+<ul class="nav nav-tabs">
+        <li class="nav-item">
+            <a class="nav-link active" href="/Fornecedor" aria-current="page">Inicial</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="/Fornecedor/Create">Cadastrar</a>
+        </li>
+</ul>
+</ul>
+<nav class="navbar navbar-expand-lg">
+</nav>
+<ul class="nav justify-content-center">
+    <div class="card border-secondary mb-3">
+        <div class="card-body text-secondary">
+            <table class="table table-striped">
+    <tr>
+        <th>Razão Social</th>
+        <th>Fornecedor</th>
+        <th>CNPJ</th>
+        <th>Inscrição Estadual</th>
+        <th>Atributo</th>
+        <th>Rua</th>
+        <th>Bairro</th>
+        <th>Cidade</th>
+        <th>UF</th>
+        <th>CEP</th>
+        <th>Telefone</th>
+        <th>Ações</th>
+    </tr>
+    <tbody id="myTable">
+    @foreach(Fornecedor f in Model)
+    {
+    <tr>
+        <td>@f.razaoSocial</td>
+        <td>@f.nomeFantasia</td>
+        <td>@f.Cnpj</td>
+        <td>@f.inscricaoEstadual</td>
+        <td>@f.Atributo</td>
+        <td>@f.Rua</td>
+        <td>@f.Bairro</td>
+        <td>@f.Cidade</td>
+        <td>@f.Uf</td>
+        <td>@f.Cep</td>
+        <td>@f.Telefone</td>
+
+        <td>
+            <a href="/Fornecedor/Delete/@f.IdFornecedor">Apagar</a>
+            <a href="/Fornecedor/Update/@f.IdFornecedor">Editar</a>
+        </td>
+    </tr>
+    }
+    </tbody>
+</table>
+        </div>
+    </div>
+</ul>
+
+</div>

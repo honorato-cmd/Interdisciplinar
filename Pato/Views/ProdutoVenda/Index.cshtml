@@ -1,0 +1,66 @@
+@using Pato.Models
+@{
+    Layout = "/Views/Layout.cshtml";
+    ViewBag.Title = "Vendas";
+}
+
+<nav class="navbar navbar-expand-lg">
+</nav>
+<ul class="nav justify-content-center">
+<ul class="nav nav-tabs">
+        <li class="nav-item">
+            <a class="nav-link active" href="/ProdutoVenda" aria-current="page">Inicial</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" data-bs-toggle="offcanvas" data-bs-target="#offcanvasWithBothOptions" aria-controls="offcanvasWithBothOptions">Filtrar</a>
+        </li>
+</ul>
+</ul>
+<div class="offcanvas offcanvas-start" data-bs-scroll="true" tabindex="-1" id="offcanvasWithBothOptions" aria-labelledby="offcanvasWithBothOptionsLabel">
+  <div class="offcanvas-header">
+    <h5 class="offcanvas-title" id="offcanvasWithBothOptionsLabel">Todas as Vendas</h5>
+    <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+  </div>
+  <div class="offcanvas-body">
+        @foreach(var venda in ViewBag.Vendas)
+            {
+            <p><a href="/ProdutoVenda/Filter/@venda.IdVenda" class="link-dark">@venda.IdVenda</a></p>
+            }
+        <hr>
+        <p><a href="/ProdutoVenda" class="link-dark">Todas as Vendas</a></p>
+  </div>
+</div>
+<nav class="navbar navbar-expand-lg">
+</nav>
+<ul class="nav justify-content-center">
+    <div class="card border-secondary mb-3">
+        <div class="card-body text-secondary">
+        <table class="table table-striped">
+            <tr>
+                <th>Venda</th>
+                <th>Produto</th>
+                <th>Quantidade</th>
+                <th>Ações</th>
+                
+            </tr>
+            <tbody id="myTable">
+            @foreach(ProdutoVenda pv in Model)
+            {
+                <tr>
+                    <td>@pv.IdVenda</td>
+                    <td>@pv.Produto</td>
+                    <td>@pv.qtd</td>
+                    <td>
+                        <a href="/ProdutoVenda/Delete/@pv.IdPv">Apagar |</a>
+                        <a href="/ProdutoVenda/Update/@pv.IdPv">Editar</a>  
+                     </td>
+                </tr>
+            }
+            </tbody>
+        </table>
+    </div>
+        </div>
+    </div>
+</ul>
+
+</div>

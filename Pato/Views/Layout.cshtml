@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+
+<head>
+  <title>@ViewBag.Title</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js">
+</script> 
+<script> 
+  $(document).ready(function(){   
+    $("#myInput").on("keyup", function() {     
+      var value = $(this).val().toLowerCase();     
+      $("#myTable tr").filter(function() {       
+        $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)     
+      });   
+    }); 
+  }); 
+</script>
+<nav class="navbar navbar-inverse navbar-dark bg-dark">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="/usuario/home">PJL42</a>
+    </div>
+    <ul class="nav justify-content-center">
+          <input class="form-control me-2" id="myInput" type="search" placeholder="Search" aria-label="Search">
+    </ul>
+    <ul class="nav navbar-nav navbar-right">
+      <li><a href="/Usuario/Login" class="btn btn-outline-danger btn-sm" role="button" style="margin-top: 5px">Sair</a>
+</li>
+  </div>
+</nav>
+
+      <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+</head>
+<body>
+    @RenderBody()
+</body>
+</html>
